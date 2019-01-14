@@ -13,7 +13,7 @@
         "test": "gulp server"
     },
     "author": "Arm Band",
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {
         "js-cookie": "^2.2.0"
     },
