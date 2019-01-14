@@ -22,9 +22,9 @@ const dir = {
         public     : './public/'
     },
     dist: {
-        html       : './doc',
+        html       : './docs',
         dist       : './dist',
-        js         : './doc/js'
+        js         : './docs/js'
     }
 }
 const filename = 'the9kbpizzatoast'

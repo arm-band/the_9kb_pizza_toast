@@ -5,9 +5,9 @@
     "main": "gulpfile.js",
     "private": true,
     "scripts": {
-        "zap": "mkdirp dist doc",
+        "zap": "mkdirp dist docs",
         "it": "gulp init",
-        "burned": "rimraf ./src/js/concat ./doc ./dist ./package-lock.json",
+        "burned": "rimraf ./src/js/concat ./docs ./dist ./package-lock.json",
         "gulp": "gulp",
         "start": "npm-run-all -s zap it",
         "test": "gulp server"
