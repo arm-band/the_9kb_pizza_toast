@@ -17,13 +17,10 @@
         //string of class, id
         var classID = 'the9kbpizzatoast';
         var showFlag = Cookies.get('name');
-        console.log("flag: " + showFlag);
-        var burnedToast = showFlag === classID ? false : true;
-        console.log("burned: " + burnedToast);
-        if(burnedToast) {
+        var croque = showFlag === classID ? false : true;
+        if(croque) {
             var params = $.extend(defaults, options);
 
-            console.log("in");
             //css value
             var buttonBGColor = validColor(params.buttonColor) ? params.buttonColor : defaults.buttonColor;
             var buttonTextColor = validColor(params.buttonTextColor) ? params.buttonTextColor : defaults.buttonTextColor;
@@ -70,7 +67,7 @@
                 'z-index': '9999'
             });
             div.css({
-                'margin': '1rem',
+                'margin': '1rem 2rem',
                 'padding': '1rem',
                 'background-color': '#fff',
                 'border': '1px solid #eee',
@@ -120,7 +117,6 @@
                 wrapperDiv.css({
                     'display': 'none'
                 });
-                console.log(Cookies.get('name'));
                 return false;
             });
         }

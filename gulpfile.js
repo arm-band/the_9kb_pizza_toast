@@ -22,32 +22,42 @@ const dir = {
         public     : './public/'
     },
     dist: {
-        html       : './dist',
-        js         : './dist/js'
+        html       : './doc',
+        dist       : './dist',
+        js         : './doc/js'
     }
 }
+const filename = 'the9kbpizzatoast'
 
 gulp.task("js.concat", () => {
-    return gulp.src([`${dir.assets.jscookie}/src/js.cookie.js`, `${dir.src.js}/the9kbpizzatoast.js`])
+    return gulp.src([`${dir.assets.jscookie}/src/js.cookie.js`, `${dir.src.js}/${filename}.js`])
         .pipe(plumber())
-        .pipe(concat("the9kbpizzatoast.js"))
+        .pipe(concat(`${filename}.js`))
         .pipe(gulp.dest(`${dir.src.js}/concat/`))
 })
 gulp.task("js", gulp.series(gulp.parallel("js.concat"), () => {
-    return gulp.src(`${dir.src.js}/concat/the9kbpizzatoast.js`)
+    return gulp.src(`${dir.src.js}/concat/${filename}.js`)
         .pipe(plumber())
         .pipe(uglify({output: {comments: "some"}}))
-        .pipe(rename(`${dir.dist.js}/the9kbpizzatoast.min.js`))  // 出力するファイル名を変更
-        .pipe(gulp.dest("./"));
-}));
+        .pipe(rename(`${dir.dist.js}/${filename}.min.js`))  // 出力するファイル名を変更
+        .pipe(gulp.dest("./"))
+}))
 
 gulp.task("public.copy", () => {
     return gulp.src(
         [`${dir.src.public}/**/*`]
     )
     .pipe(plumber())
-    .pipe(gulp.dest(dir.dist.html));
-});
+    .pipe(gulp.dest(dir.dist.html))
+})
+
+gulp.task("js.copy", () => {
+    return gulp.src(
+        [`${dir.dist.js}/${filename}.min.js`]
+    )
+    .pipe(plumber())
+    .pipe(gulp.dest(dir.dist.dist))
+})
 
 gulp.task("browsersync", () => {
     browserSync({
@@ -56,16 +66,16 @@ gulp.task("browsersync", () => {
         },
         open: 'external',
         https: true
-    });
+    })
 
-    watch(`${dir.src.public}/**/*`, gulp.series("public.copy", browserSync.reload));
-    watch(`${dir.src.js}/*.js`, gulp.series("js", browserSync.reload));
-});
+    watch(`${dir.src.public}/**/*`, gulp.series("public.copy", browserSync.reload))
+    watch(`${dir.src.js}/*.js`, gulp.series("js", browserSync.reload))
+})
 
-gulp.task("server", gulp.series("browsersync"));
-gulp.task("build", gulp.parallel("public.copy", "js"));
+gulp.task("server", gulp.series("browsersync"))
+gulp.task("build", gulp.parallel("public.copy", "js"))
 
 //最初のタスク
-gulp.task("init", gulp.series("build", "server"));
+gulp.task("init", gulp.series("build", "server"))
 //gulpのデフォルトタスクで諸々を動かす
-gulp.task("default", gulp.series("server"));
+gulp.task("default", gulp.series("server"))

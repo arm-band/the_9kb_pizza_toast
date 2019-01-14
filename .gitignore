@@ -1,5 +1,4 @@
 /node_modules/
 /src/js/concat/
 package-lock.json
-/dist
 /misc
