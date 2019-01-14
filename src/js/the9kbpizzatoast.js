@@ -66,7 +66,7 @@
                 'position': 'fixed',
                 'left': '0',
                 'bottom': '0',
-                'z-index': '9999'
+                'visibility': 'hidden'
             });
             div.css({
                 'margin': '1rem 2rem',
@@ -77,7 +77,9 @@
                 'justify-content': 'space-around',
                 'align-items': 'center',
                 'border-radius': boxBorderRadius,
-                'boxShadow': boxShadow
+                'boxShadow': boxShadow,
+                'visibility': 'visible',
+                'z-index': '9999'
             });
             textP.css({
                 'margin-right': '1rem',
