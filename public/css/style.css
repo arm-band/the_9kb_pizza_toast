@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+.navbar {
+    background-color: #F7D784!important;
+    color: #B1380C;
+}
+.navbar a, .navbar a:link, .navbar a:visited, .navbar a:active, .navbar a:hover, .navbar a:focus {
+    color: #B1380C;
+}
+.navbar-nav a, .navbar-nav a:link, .navbar-nav a:visited, .navbar-nav a:active, .navbar-nav a:hover, .navbar-nav a:focus {
+    color: #99A750;
+}
+.navbar-toggler {
+    color: #B1380C;
+}
+.footer {
+    background-color: #F7D784!important;
+    color: #99A750;
+}

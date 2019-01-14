@@ -2,13 +2,13 @@
     $.fn.the9kbpizzatoast = function(options) {
 
         var defaults = {
-            text              : 'The 9kb Pizza ToastはCookieによる2度目以降の表示抑止ができるシンプルなトーストのjQueryプラグインです。詳しくは右記リンク先をご参照ください。',
+            text              : '',
             showText          : '<br><a href="./the9kbpizzatoast" id="the9kbpizzatoast_hiddenButton">ページの閲覧中、このウインドウを表示しない</a>',
             buttonText        : 'リンクボタン',
             buttonColor       : '#fff',
             buttonTextColor   : '#333',
             buttonBorderColor : '#ccc',
-            buttonLink        : 'https://example.jp/',
+            buttonLink        : '#',
             buttonShadow      : false,
             borderRadius      : '0px',
             boxShadow         : false
@@ -21,11 +21,13 @@
         if(croque) {
             var params = $.extend(defaults, options);
 
+            console.log(params.buttonShadow);
+        console.log(validBoolean(params.buttonShadow));
             //css value
             var buttonBGColor = validColor(params.buttonColor) ? params.buttonColor : defaults.buttonColor;
             var buttonTextColor = validColor(params.buttonTextColor) ? params.buttonTextColor : defaults.buttonTextColor;
             var buttonBorderColor = validColor(params.buttonBorderColor) ? params.buttonBorderColor : defaults.buttonBorderColor;
-            var buttonShadow = validBoolean(params.buttonShadow) ? '0 3px 3px rgba(48,48,48,0.4)'  : '0 0 0 rgba(0,0,0,0)';
+            var buttonShadow = validBoolean(params.buttonShadow) ? '0 3px 3px rgba(48,48,48,0.4)' : '0 0 0 rgba(0,0,0,0)';
             var boxBorderRadius = validPixel(params.borderRadius) ? params.borderRadius : defaults.borderRadius;
             var boxShadow = validBoolean(params.boxShadow) ? '0 3px 3px rgba(48,48,48,0.4)'  : '0 0 0 rgba(0,0,0,0)';
 
@@ -177,9 +179,9 @@
         }
         function validBoolean(bool) {
             if(typeof bool !== 'boolean') {
-                return bool;
+                return false;
             }
-            return true;
+            return bool;
         }
     };
 })(jQuery);
