@@ -2,7 +2,7 @@
 
 The 9kb Pizza ToastはCookieによる2度目以降の表示抑止ができるシンプルなトーストのjQueryプラグインです。
 
-なお、実際の容量は9KBありません。
+※名前はネタなので、実際の容量は9KBありません。
 
 ## Demonstration
 
