@@ -21,8 +21,6 @@
         if(croque) {
             var params = $.extend(defaults, options);
 
-            console.log(params.buttonShadow);
-        console.log(validBoolean(params.buttonShadow));
             //css value
             var buttonBGColor = validColor(params.buttonColor) ? params.buttonColor : defaults.buttonColor;
             var buttonTextColor = validColor(params.buttonTextColor) ? params.buttonTextColor : defaults.buttonTextColor;
