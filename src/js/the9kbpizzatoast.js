@@ -100,6 +100,11 @@
             //add
             $('body').append(wrapperDiv);
 
+            //リサイズの度に表示を調整
+            $(window).on('load resize', function(){
+                resizeAdjust(div, textP, button);
+            });
+
             //button hover
             $('#' + classID + '_button').on({
                 mouseover: function() {
@@ -123,6 +128,39 @@
             });
         }
 
+        //resize
+        function resizeAdjust(div, textP, button) {
+            var windowWidth = $(window).outerWidth();
+            console.log(windowWidth);
+
+            if(windowWidth <= 991) {
+                console.log("in");
+                div.css({
+                    'flex-direction': 'column'
+                });
+                textP.css({
+                    'margin-right': '0',
+                    'margin-bottom': '0.5rem',
+                    'line-height': '1.2'
+                });
+                button.css({
+                    'margin-left': '0',
+                    'margin-top': '0.5rem'
+                });
+            }
+            else {
+                console.log("inin");
+                div.css({
+                    'flex-direction': 'row'
+                });
+                textP.css({
+                    'margin-right': '1rem'
+                });
+                button.css({
+                    'margin-left': '1rem'
+                });
+            }
+        }
         //functions
         //css
         function reset($elm) {

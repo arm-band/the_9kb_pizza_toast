@@ -1,6 +1,6 @@
 {
-    "name": "milktoast",
-    "version": "0.0.1",
+    "name": "the_9kb_pizza_toast",
+    "version": "0.0.2",
     "description": "The 9kb Pizza ToastはCookieによる2度目以降の表示抑止ができるシンプルなトーストのjQueryプラグインです。",
     "main": "gulpfile.js",
     "private": true,
