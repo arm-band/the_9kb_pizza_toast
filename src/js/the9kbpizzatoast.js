@@ -131,10 +131,8 @@
         //resize
         function resizeAdjust(div, textP, button) {
             var windowWidth = $(window).outerWidth();
-            console.log(windowWidth);
 
             if(windowWidth <= 991) {
-                console.log("in");
                 div.css({
                     'flex-direction': 'column'
                 });
@@ -149,7 +147,6 @@
                 });
             }
             else {
-                console.log("inin");
                 div.css({
                     'flex-direction': 'row'
                 });

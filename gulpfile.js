@@ -73,7 +73,7 @@ gulp.task("browsersync", () => {
 })
 
 gulp.task("server", gulp.series("browsersync"))
-gulp.task("build", gulp.parallel("public.copy", "js"))
+gulp.task("build", gulp.parallel("public.copy", "js.copy", "js"))
 
 //最初のタスク
 gulp.task("init", gulp.series("build", "server"))
